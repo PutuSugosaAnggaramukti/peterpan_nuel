@@ -15,6 +15,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('nim');
+            $table->string('prodi');
+            $table->string('tgl_pinjam');
+            $table->string('jam_mulai');
+            $table->string('jam_selesai');
             $table->string('ruangan');
             $table->string('statuspinjam');
             $table->timestamps();

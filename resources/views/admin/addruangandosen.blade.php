@@ -33,7 +33,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-plus-square w3-xxlarge"></i>
     <p>INPUT RUANGAN MHS</p>
   </a>
-  <a href="/tambahruangandosen" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+  <a href="/tambahruangan" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
     <i class="fa fa-plus-square w3-xxlarge"></i>
     <p>INPUT RUANGAN DOSEN</p>
   </a>
@@ -54,8 +54,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-main" style="margin-left:200px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Tambah Data Ruangan</b></h2>
-    <h3>Informasi Ruangan Untuk Mahasiswa</h3>
-    <form action="/addpengajuan" method="POST">
+    <h3>Informasi Ruangan Untuk Dosen</h3>
+    <form action="/pengajuanruangdosen" method="POST">
           {{csrf_field()}}
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Ruangan</label>
@@ -73,7 +73,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
               <label for="exampleInputEmail1">Fasilitas</label>
               <input name="fasilitas"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
            </div>
-         
       </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">SUBMIT</button>
@@ -110,7 +109,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
               <label for="exampleInputEmail1">Fasilitas</label>
               <input name="fasilitas"type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
            </div>
-          
       </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">SUBMIT</button>
@@ -126,7 +124,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <div class="w3-main" style="margin-left:200px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Data Ruangan</b></h2>
-    <h3>Informasi Ruangan Mahasiswa</h3>
+    <h3>Informasi Ruangan Dosen</h3>
     
     <div class="w3-row">
     <div>
@@ -136,17 +134,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <th>Kategori</th> 
         <th>Kapasitas</th> 
         <th>Fasilitas</th>
+        <th>Status</th>
         <th>Edit</th>
         <th>Delete</th>
         </tr>
-        @foreach($data_ruangan as $ruangan)
+        @foreach($data_ruangandosen as $ruangandosen)
         <tr>
-        <td>{{$ruangan->nama_ruangan}}</td>   
-        <td>{{$ruangan->kategori}}</td> 
-        <td>{{$ruangan->kapasitas}}</td> 
-        <td>{{$ruangan->fasilitas}}</td> 
-        <td><a href="/prosesviewdata/{{$ruangan->id}}" class="btn btn-primary">Edit</a></td>
-        <td><a href="/deleteruangan/{{$ruangan->id}}" class="btn btn-primary">Delete</a></td>
+        <td>{{$ruangandosen->nama_ruangan}}</td>   
+        <td>{{$ruangandosen->kategori}}</td> 
+        <td>{{$ruangandosen->kapasitas}}</td> 
+        <td>{{$ruangandosen->fasilitas}}</td> 
+        <td>{{$ruangandosen->status}}</td> 
+        <td><a href="/prosesviewdatadosen/{{$ruangandosen->id}}" class="btn btn-primary">Edit</a></td>
+        <td><a href="/deleteruangandosen/{{$ruangandosen->id}}" class="btn btn-primary">Delete</a></td>
         </tr>
         @endforeach
         </table>

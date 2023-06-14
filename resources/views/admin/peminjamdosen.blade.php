@@ -30,11 +30,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center w3-black">
   <!-- Avatar image in top left corner -->
-  <a href="/homepage" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+  <a href="/dosenhomepage" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
-   <a href="/loginmahasiswa" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+  <a href="/datapeminjamdosen" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+    <i class="fa fa-building w3-xxlarge"></i>
+    <p>DAFTAR RUANGAN</p>
+  </a>
+   <a href="/logindosen" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
     <i class="fa fa-sign-out w3-xxlarge"></i>
     <p>LOGOUT</p>
   </a>
@@ -64,11 +68,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <h5 class="modal-title" id="exampleModalLabel">Form Pinjam Ruangan</h5>
 </div>
 <div class="modal-body">
-    <form action="/pinjamruangan" method="POST">
+    <form action="/pinjamruangandosen" method="POST">
       {{csrf_field()}}
       <div class="form-group">
                  <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">Nama</label>
+                        <label for="email" class="cols-sm-2 control-label">Nama Dosen</label>
                         <div class="cols-sm-10">
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -77,11 +81,20 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                         </div>
                   </div>
                   <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">NIM</label>
+                        <label for="email" class="cols-sm-2 control-label">NIK</label>
                         <div class="cols-sm-10">
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="nim" id="email" placeholder="" />
+                            <input type="text" class="form-control" name="nik" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Fakultas</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="fakultas" id="email" placeholder="" />
                           </div>
                         </div>
                   </div>
@@ -151,12 +164,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <th>Kapasitas</th> 
         <th>Fasilitas</th>
         </tr>
-        @foreach($data_ruangan as $ruangan)
+        @foreach($data_ruangandosen as $ruangandosen)
         <tr>
-        <td>{{$ruangan->nama_ruangan}}</td>   
-        <td>{{$ruangan->kategori}}</td> 
-        <td>{{$ruangan->kapasitas}}</td> 
-        <td>{{$ruangan->fasilitas}}</td> 
+        <td>{{$ruangandosen->nama_ruangan}}</td>   
+        <td>{{$ruangandosen->kategori}}</td> 
+        <td>{{$ruangandosen->kapasitas}}</td> 
+        <td>{{$ruangandosen->fasilitas}}</td> 
         </tr>
         @endforeach
         </table>

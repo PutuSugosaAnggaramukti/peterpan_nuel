@@ -10,5 +10,5 @@ class peminjam extends Model
     use HasFactory;
     protected $table = 'peminjam';
     protected $primarykey = 'id';
-    protected $fillable = ['nama','nim','ruangan','statuspinjam'];
+    protected $fillable = ['nama','nim','prodi','tgl_pinjam','jam_mulai','jam_selesai','ruangan'];
 }

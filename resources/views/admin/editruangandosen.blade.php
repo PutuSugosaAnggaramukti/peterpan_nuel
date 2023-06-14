@@ -54,24 +54,24 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-main" style="margin-left:200px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
     <h2><b>Edit Data Ruangan</b></h2>
-    <form action="{{route('editruangan',['id'=>$data_ruangan->id])}}" method="GET">
+    <form action="{{route('editruangandosen',['id'=>$data_ruangandosen->id])}}" method="GET">
           {{csrf_field()}}
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Ruangan</label>
-              <input name="nama_ruangan"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangan->nama_ruangan}}">
+              <input name="nama_ruangan"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangandosen->nama_ruangan}}">
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Kategori</label>
-              <input name="kategori"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangan->kategori}}">
+              <input name="kategori"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangandosen->kategori}}">
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Kapasitas</label>
-              <input name="kapasitas"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangan->kapasitas}}" >
+              <input name="kapasitas"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangandosen->kapasitas}}" >
            </div>
            <div class="form-group">
               <label for="exampleInputEmail1">Fasilitas</label>
-              <input name="fasilitas"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangan->fasilitas}}">
-
+              <input name="fasilitas"type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data_ruangandosen->fasilitas}}">
+           </div>
       </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary w3-orange">SUBMIT</button>

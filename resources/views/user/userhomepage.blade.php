@@ -38,10 +38,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
-  <a href="/pageruangan" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
-    <i class="fa fa-building w3-xxlarge"></i>
-    <p>DAFTAR RUANGAN</p>
-  </a>
   <a href="/loginmahasiswa" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
     <i class="fa fa-sign-out w3-xxlarge"></i>
     <p>LOGOUT</p>
@@ -124,87 +120,133 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         </p>
       </div>
     </div>
+       <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Form Pinjam Ruangan</h5>
+</div>
+<div class="modal-body">
+    <form action="/pinjamruangan" method="POST">
+      {{csrf_field()}}
+      <div class="form-group">
+                 <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Nama Peminjam</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="nama" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">NIM</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="nim" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Prodi</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="prodi" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Tanggal Pinjam</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                            <input type="date" class="form-control" name="tgl_pinjam" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Jam Pinjam (mulai)</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                            <input type="time" class="form-control" name="jam_mulai" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Jam Pinjam (selesai)</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                            <input type="time" class="form-control" name="jam_selesai" id="email" placeholder="" />
+                          </div>
+                        </div>
+                  </div>
+                <label for="name" class="cols-sm-2 control-label">Nama Ruangan</label>
+                                        <div class="cols-sm-10">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
+                                                <select name="ruangan"class="form-control" id="exampleFormControlSelect1">
+                                                    <option value="Ruang Seminar Tasdik">Ruang Seminar Tasdik</option>
+                                                    <option value="Atrium Didaktos">Atrium Didaktos</option>
+                                                    <option value="Ruang D3.1">Ruang D3.1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>                             
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section class="ftco-section">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Cek Ketersediaan Ruangan</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="content w-100">
-				    <div class="calendar-container">
-				      <div class="calendar"> 
-				        <div class="year-header"> 
-				          <span class="left-button fa fa-chevron-left" id="prev"> </span> 
-				          <span class="year" id="label"></span> 
-				          <span class="right-button fa fa-chevron-right" id="next"> </span>
-				        </div> 
-				        <table class="months-table w-100"> 
-				          <tbody>
-				            <tr class="months-row">
-				              <td class="month">Jan</td> 
-				              <td class="month">Feb</td> 
-				              <td class="month">Mar</td> 
-				              <td class="month">Apr</td> 
-				              <td class="month">May</td> 
-				              <td class="month">Jun</td> 
-				              <td class="month">Jul</td>
-				              <td class="month">Aug</td> 
-				              <td class="month">Sep</td> 
-				              <td class="month">Oct</td>          
-				              <td class="month">Nov</td>
-				              <td class="month">Dec</td>
-				            </tr>
-				          </tbody>
-				        </table> 
-				        
-				        <table class="days-table w-100"> 
-				          <td class="day">Sun</td> 
-				          <td class="day">Mon</td> 
-				          <td class="day">Tue</td> 
-				          <td class="day">Wed</td> 
-				          <td class="day">Thu</td> 
-				          <td class="day">Fri</td> 
-				          <td class="day">Sat</td>
-				        </table> 
-				        <div class="frame"> 
-				          <table class="dates-table w-100"> 
-			              <tbody class="tbody">             
-			              </tbody> 
-				          </table>
-				        </div> 
-				        <button class="button" id="add-button">Pinjam Ruangan</button>
+			
+    <div class="w3-content w3-justify w3-text-black w3-padding-64" style="margin-left:100px;margin-top:43px;">
+    <h2 class="heading-section text-center"><b>Data Mahasiswa Peminjam Ruangan</b></h2>
+    <a href="/pagepeminjam"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Pinjam Ruangan
+    </button></a>
+    <div class="w3-row">
+    <div>
+        <table class="table">
+        <tr>
+        <th>Nama Peminjam</th>
+        <th>NIM</th> 
+        <th>Prodi</th>
+        <th>Tanggal Pinjam</th>
+        <th>Jam Pinjam(mulai)</th>
+        <th>Jam Pinjam(selesai)</th>
+        <th>Nama Ruangan</th>
+        </tr>
+        @foreach($data_peminjam as $peminjam)
+        <tr>
+        <td>{{$peminjam->nama}}</td>   
+        <td>{{$peminjam->nim}}</td> 
+        <td>{{$peminjam->prodi}}</td>
+        <td>{{$peminjam->tgl_pinjam}}</td>
+        <td>{{$peminjam->jam_mulai}}</td>
+        <td>{{$peminjam->jam_selesai}}</td>
+        <td>{{$peminjam->ruangan}}</td> 
+        </tr>
+        @endforeach
+        </table>
+        </div>
+       
+      </div>
+       
+      </div>
 				      </div>
 				    </div>
 				   
-				    <div class="dialog" id="dialog">
-				        <h2 class="dialog-header"> Form Pengajuan</h2>
-				        <form class="form" id="form">
-				          <div class="form-container" align="center">
-				            <label class="form-label" id="valueFromMyButton" for="name">Nama</label>
-				            <input class="input" type="text" id="name" maxlength="255">
-                            <label class="form-label" id="valueFromMyButton" for="name">NIM</label>
-				            <input class="input" type="text" id="name" maxlength="255">
-                            <label class="form-label" id="valueFromMyButton" for="name">Ruangan</label>
-				            <input class="input" type="text" id="name" maxlength="255">
-				            <input type="button" value="Cancel" class="button" id="cancel-button">
-				            <input type="button" value="OK" class="button button-white" id="ok-button">
-				          </div>
-				        </form>
-				      </div>
-				  </div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="{{asset('calendarasset/js/jquery.min.js')}}"></script>
-  <script src="{{asset('calendatrasset/js/popper.js')}}"></script>
-  <script src="{{asset('calendarasset/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('calendarasset/js/main.js')}}"></script>
- 
+				   
 
 
 
