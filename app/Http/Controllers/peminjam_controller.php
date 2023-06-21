@@ -12,7 +12,8 @@ class peminjam_controller extends Controller
 {
     public function indexpeminjam(){
         $data_ruangan = ruangan::all();
-        return view('admin.datapeminjam',compact('data_ruangan'));
+        $data_peminjam = peminjam::all();
+        return view('admin.datapeminjam',compact('data_ruangan','data_peminjam'));
     }
 
     public function addpeminjam(Request $request){ 

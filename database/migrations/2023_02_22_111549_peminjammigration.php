@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('tgl_pinjam');
             $table->string('jam_mulai');
             $table->string('jam_selesai');
-            $table->string('ruangan');
-            $table->string('statuspinjam');
+            $table->string('nama_ruangan');
             $table->timestamps();
         });
     }

@@ -51,10 +51,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <div class="w3-main" style="margin-left:200px;margin-top:43px;">
   <header class="w3-container" style="padding-top:22px">
-    <h2><b>Daftar Ruangan Yang Tersedia</b></h2>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Pinjam Ruangan
-    </button>
+    <h2 class="heading-section text-left"><b>Daftar Ruangan Yang Tersedia</b></h2>
     </header>
     <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,7 +69,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                         <div class="cols-sm-10">
                           <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="nama" id="email" placeholder="" />
+                            <input type="text" class="form-control" name="nama" id="email" placeholder=""  />
                           </div>
                         </div>
                   </div>
@@ -125,10 +122,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
-                                                <select name="ruangan"class="form-control" id="exampleFormControlSelect1">
-                                                    <option value="Ruang Seminar Tasdik">Ruang Seminar Tasdik</option>
-                                                    <option value="Atrium Didaktos">Atrium Didaktos</option>
-                                                    <option value="Ruang D3.1">Ruang D3.1</option>
+                                                <select name="nama_ruangan"class="form-control" id="exampleFormControlSelect1">
+                                                    <option value="Ruang D.3.1">Ruang D3.1</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -150,6 +145,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <th>Kategori</th> 
         <th>Kapasitas</th> 
         <th>Fasilitas</th>
+        <th></th>
         </tr>
         @foreach($data_ruangan as $ruangan)
         <tr>
@@ -157,6 +153,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <td>{{$ruangan->kategori}}</td> 
         <td>{{$ruangan->kapasitas}}</td> 
         <td>{{$ruangan->fasilitas}}</td> 
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Pinjam Ruangan
+    </button></td>
         </tr>
         @endforeach
         </table>
@@ -164,6 +163,34 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
        
       </div>
       
+      <h2 class="heading-section text-left"><b>Data Peminjam Ruangan</b></h2>
+      <div class="w3-row">
+    <div>
+        <table class="table">
+        <tr>
+        <th>Nama Peminjam</th>
+        <th>NIM</th> 
+        <th>Prodi</th>
+        <th>Tanggal Pinjam</th>
+        <th>Jam Pinjam(mulai)</th>
+        <th>Jam Pinjam(selesai)</th>
+        <th>Nama Ruangan</th>
+        </tr>
+        @foreach($data_peminjam as $peminjam)
+        <tr>
+        <td>{{$peminjam->nama}}</td>   
+        <td>{{$peminjam->nim}}</td> 
+        <td>{{$peminjam->prodi}}</td>
+        <td>{{$peminjam->tgl_pinjam}}</td>
+        <td>{{$peminjam->jam_mulai}}</td>
+        <td>{{$peminjam->jam_selesai}}</td>
+        <td>{{$peminjam->nama_ruangan}}</td> 
+        </tr>
+        @endforeach
+        </table>
+        </div>
+       
+      </div>
   </div>
 
 

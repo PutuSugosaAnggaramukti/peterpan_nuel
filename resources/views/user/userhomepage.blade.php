@@ -38,6 +38,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
+  <a href="/pagepeminjam" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
+    <i class="fa fa-building w3-xxlarge"></i>
+    <p>DAFTAR RUANGAN</p>
+  </a>
   <a href="/loginmahasiswa" class="w3-bar-item w3-button w3-padding-large w3-hover-orange">
     <i class="fa fa-sign-out w3-xxlarge"></i>
     <p>LOGOUT</p>
@@ -209,39 +213,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <section class="ftco-section">
 		<div class="container">
 			
-    <div class="w3-content w3-justify w3-text-black w3-padding-64" style="margin-left:100px;margin-top:43px;">
-    <h2 class="heading-section text-center"><b>Data Mahasiswa Peminjam Ruangan</b></h2>
-    <a href="/pagepeminjam"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Pinjam Ruangan
-    </button></a>
-    <div class="w3-row">
-    <div>
-        <table class="table">
-        <tr>
-        <th>Nama Peminjam</th>
-        <th>NIM</th> 
-        <th>Prodi</th>
-        <th>Tanggal Pinjam</th>
-        <th>Jam Pinjam(mulai)</th>
-        <th>Jam Pinjam(selesai)</th>
-        <th>Nama Ruangan</th>
-        </tr>
-        @foreach($data_peminjam as $peminjam)
-        <tr>
-        <td>{{$peminjam->nama}}</td>   
-        <td>{{$peminjam->nim}}</td> 
-        <td>{{$peminjam->prodi}}</td>
-        <td>{{$peminjam->tgl_pinjam}}</td>
-        <td>{{$peminjam->jam_mulai}}</td>
-        <td>{{$peminjam->jam_selesai}}</td>
-        <td>{{$peminjam->ruangan}}</td> 
-        </tr>
-        @endforeach
-        </table>
-        </div>
-       
-      </div>
-       
+ 
+
       </div>
 				      </div>
 				    </div>
